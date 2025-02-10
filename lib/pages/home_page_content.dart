@@ -18,16 +18,13 @@ class _HomePageContentState extends State<HomePageContent> {
   }
 
   Future<void> _fetchRecipes() async {
-    final response = await Supabase.instance.client
-        .from('recipes') // Ganti dengan nama tabel Anda
-        .select();
+    final response = await Supabase.instance.client.from('recipes').select();
     // print(response);
     // if (response.error == null) {
     setState(() {
       _recipes = List<Map<String, dynamic>>.from(response);
     });
     // } else {
-    //   // Tangani error jika ada
     //   print('Error fetching recipes: ${response.error!.message}');
     // }
   }

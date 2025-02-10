@@ -30,9 +30,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-            builder: (context) =>
-                HomePage()), // Ganti HomePage dengan halaman home Anda
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     } catch (e) {
       if (mounted) {

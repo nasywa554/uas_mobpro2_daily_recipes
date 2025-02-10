@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../services/supabase_service.dart';
-import 'package:daily_recipes/pages/saved_recipes_page.dart'; // Pastikan untuk mengimpor SavedRecipesPage
-import 'package:daily_recipes/pages/add_recipe_page.dart'; // Pastikan untuk mengimpor AddRecipePage
-import 'package:daily_recipes/pages/profile_page.dart'; // Pastikan untuk mengimpor ProfilePage
+import 'package:daily_recipes/pages/saved_recipes_page.dart';
+import 'package:daily_recipes/pages/add_recipe_page.dart';
+import 'package:daily_recipes/pages/profile_page.dart';
 import 'package:daily_recipes/pages/home_page_content.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,14 +14,13 @@ class _HomePageState extends State<HomePage> {
   final SupabaseService supabaseService = SupabaseService();
   int _selectedIndex = 0;
 
-  late final List<Widget>
-      _widgetOptions; // Gunakan 'late' untuk menunda inisialisasi
+  late final List<Widget> _widgetOptions;
 
   @override
   void initState() {
     super.initState();
     _widgetOptions = <Widget>[
-      HomePageContent(), // Ganti dengan widget HomePageContent
+      HomePageContent(), // HomePageContent
       SavedRecipesPage(), // Halaman Simpan
       AddRecipePage(), // Halaman Tambah
       ProfilePage(), // Halaman Profile

@@ -28,7 +28,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     if (user != null) {
       // Ambil data pengguna dari tabel user_photo
       final response = await Supabase.instance.client
-          .from('user_photo') // Ganti dengan nama tabel Anda
+          .from('user_photo')
           .select('username, name, photo')
           .eq('id_user', user.id);
 
@@ -65,7 +65,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         final fileName = DateTime.now().millisecondsSinceEpoch.toString();
         final path = 'uploads/$fileName';
         final response = await Supabase.instance.client.storage
-            .from('user_photo') // Ganti dengan nama bucket Anda
+            .from('user_photo')
             .upload(path, _imageFile!);
 
         // if (response == null) {
@@ -80,7 +80,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
       // Update user profile
       final updateResponse = await Supabase.instance.client
-          .from('user_photo') // Ganti dengan nama tabel Anda
+          .from('user_photo') // nama tabel user_photo
           .update({
         'username': _usernameController.text,
         'name': _nameController.text,

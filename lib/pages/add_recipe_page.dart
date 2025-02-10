@@ -68,7 +68,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
 
       // Upload image to Supabase storage
       final uploadResponse = await Supabase.instance.client.storage
-          .from('recipe_image') // Ganti 'recipe_image' dengan nama bucket Anda
+          .from('recipe_image') // 'recipe_image' nama bucket
           .upload(path, _imageFile!);
 
       // Check for upload errors
@@ -105,8 +105,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (context) =>
-                  HomePageContent()), // Replace with your homepage widget
+              builder: (context) => HomePageContent()), // homepage widget
         );
       }
     } catch (e) {
