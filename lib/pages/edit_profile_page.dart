@@ -28,7 +28,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     if (user != null) {
       // Ambil data pengguna dari tabel user_photo
       final response = await Supabase.instance.client
-          .from('user_photo') // Ganti dengan nama tabel Anda
+          .from('user_photo') 
           .select('username, name, photo')
           .eq('id_user', user.id);
 
