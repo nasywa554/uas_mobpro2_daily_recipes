@@ -23,14 +23,14 @@ class _SavedRecipesPageState extends State<SavedRecipesPage> {
     }
     final String userId = user.id;
     final response = await Supabase.instance.client
-        .from('saved_recipes') // Ganti dengan nama tabel Anda
+        .from('saved_recipes') 
         .select('id_recipe, id_user')
         .eq('id_user', userId);
 
     final List<dynamic> savedRecipeData = response; // Ambil data dari response
     for (var item in savedRecipeData) {
       final recipeResponse = await Supabase.instance.client
-          .from('recipes') // Ganti dengan nama tabel resep Anda
+          .from('recipes') 
           .select('*') // Ambil semua kolom
           .eq('id', item['id_recipe']);
 
@@ -45,11 +45,11 @@ class _SavedRecipesPageState extends State<SavedRecipesPage> {
     if (user != null) {
       // Hapus resep dari tabel saved_recipes
       final response = await Supabase.instance.client
-          .from('saved_recipes') // Ganti dengan nama tabel saved_recipes Anda
+          .from('saved_recipes') 
           .delete()
           .eq('id_recipe', recipeId)
           .eq('id_user',
-              user.id); // Pastikan untuk menghapus berdasarkan id_user
+              user.id); // untuk menghapus berdasarkan id_user
 
       // if (response.error == null) {
       setState(() {
@@ -140,7 +140,7 @@ class _SavedRecipesPageState extends State<SavedRecipesPage> {
                             ],
                           ),
                         ),
-                        // Tambahkan tombol hapus di bawah resep
+                        // tombol hapus di bawah resep
                         IconButton(
                           icon: Icon(Icons.delete, color: Colors.red),
                           onPressed: () {
