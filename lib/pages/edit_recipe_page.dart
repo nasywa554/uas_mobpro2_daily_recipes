@@ -85,7 +85,7 @@ class _EditRecipePageState extends State<EditRecipePage> {
         // Upload image to Supabase storage
         final uploadResponse = await Supabase.instance.client.storage
             .from(
-                'recipe_image') // Ganti 'recipe_image' dengan nama bucket Anda
+                'recipe_image') 
             .upload(path, _imageFile!);
 
         // Check for upload errors
