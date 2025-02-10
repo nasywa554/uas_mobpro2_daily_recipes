@@ -68,7 +68,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
 
       // Upload image to Supabase storage
       final uploadResponse = await Supabase.instance.client.storage
-          .from('recipe_image') // 'recipe_image' nama bucket
+          .from('recipe_image') // nama bucketnya recipe_image
           .upload(path, _imageFile!);
 
       // Check for upload errors
